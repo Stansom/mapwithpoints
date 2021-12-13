@@ -20,11 +20,4 @@ describe('Input Form', () => {
 		const { container } = render(<InputForm />);
 		expect(container.innerHTML).toMatch('Enter points:');
 	});
-
-	it('should not allow letters to be inputted', () => {
-		const { input, form } = setup();
-		expect(input.value).toBe('');
-		fireEvent.change(input, { target: { value: '23 23' } });
-		expect(input.value).toBe('23 23');
-	});
 });
