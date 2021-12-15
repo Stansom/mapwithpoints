@@ -1,15 +1,18 @@
 # Test map app created with React and TypeScript
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### The live app you can see here: https://stansom.github.io/mapwithpoints/
+
+![Screenshot 2021-12-15 at 19 50 04](https://user-images.githubusercontent.com/77399308/146247250-d2c6a627-e3c5-4c09-a32b-bd64f1d948e4.png)
 
 ## How to build
 ### Development
-1. Clone the repository on your computer.
+1. Clone the repository to your computer.
 2. Open terminal or CMD and enter `yarn start` or `npm start` to run the app in the development mode.
 3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Production
-1. Clone the repository on your computer.
+1. Clone the repository to your computer.
 2. Open terminal or CMD and enter `yarn build` or `npm build` to build the app into the `build` folder.
 3. Enter `serve -s build` to run a server with the app.
 
