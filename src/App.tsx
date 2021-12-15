@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { placemarkType } from './appTypes';
 import { PointsList } from './components/pointsList';
 import { MapElement } from './components/mapElement';
 import { InputForm } from './components/inputForm';
-import { ModalWindow } from './components/modalWindow';
 
 const appStyle = `App container-sm d-flex p-2 flex-column vh-100 vw-100 justify-content-center`;
 const h2Style = `text-center text-white bg-primary bg-gradient border border-0 rounded w-30 p-2 align-self-center`;
@@ -19,7 +18,6 @@ function App() {
 	};
 	const [placemarks, setPlacemarks] = useState<placemarkType[]>([]);
 	const [pathDots, setPathDots] = useState<number[][]>([]);
-	const [isNumber, setIsNumber] = useState(true);
 
 	function handleFormSubmit(
 		event: React.FormEvent<HTMLFormElement>,
@@ -45,18 +43,6 @@ function App() {
 			inputRef.current.value = '';
 		}
 	}
-
-	// function handleInputChange() {
-	// 	if (inputRef.current) {
-	// 		const inputValue = inputRef.current.value;
-	// 		if (isNaN(Number(inputValue))) {
-	// 			setIsNumber(false);
-	// 		} else {
-	// 			setIsNumber(true);
-	// 		}
-	// 		currentInputValue = inputValue;
-	// 	}
-	// }
 
 	function deletePointHandler(placemark: placemarkType) {
 		const filteredPlacemarks = placemarks.filter(
@@ -90,11 +76,6 @@ function App() {
 		setPathDots(placemarksCopy.map((cr) => [cr.lat, cr.lon]));
 	}
 
-	// useEffect(() => {
-	// 	console.log('placemarks', placemarks);
-	// 	// console.log('paths', pathDots);
-	// }, [placemarks, pathDots]);
-
 	return (
 		<div className={appStyle}>
 			<h2 className={h2Style}>Routes Editor</h2>
@@ -108,12 +89,7 @@ function App() {
 
 			{/* INPUT FORM */}
 			<div className={inputDivStyle}>
-				{!isNumber ? <ModalWindow /> : ''}
-				<InputForm
-					// handleInputChange={setIsNumber}
-					handleFormSubmit={handleFormSubmit}
-					setIsNumber={setIsNumber}
-				/>
+				<InputForm handleFormSubmit={handleFormSubmit} />
 
 				{/* POINTS LIST */}
 				<hr className={hrStyle} style={{ height: '2px' }} />

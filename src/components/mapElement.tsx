@@ -3,7 +3,7 @@ import { YMaps, Map, Placemark, Polyline } from 'react-yandex-maps';
 import { MapProps } from '../appTypes';
 
 const MapStyle = `
-w-100 h-50 align-self-center
+map-container w-100 h-50 align-self-center
 `;
 
 export const MapElement = ({

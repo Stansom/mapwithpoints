@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 
 export type placemarkType = {
 	id: number;
@@ -31,7 +30,7 @@ export type InputFormType = {
 		inputRef: React.RefObject<HTMLInputElement>,
 		currentInputValue: string
         ) => void;
-        setIsNumber: Dispatch<SetStateAction<boolean>>;
+        // setIsNumber: Dispatch<SetStateAction<boolean>>;
     // inputRef: React.LegacyRef<HTMLInputElement>;
     // handleInputChange: () => void;
 }

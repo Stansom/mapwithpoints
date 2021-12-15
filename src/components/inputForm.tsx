@@ -1,16 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { InputFormType } from '../appTypes';
+import { ModalWindow } from './modalWindow';
 
 const inputFormStyle = `mb-3 p-2`;
 
 export const InputForm = ({
 	handleFormSubmit,
-	setIsNumber,
-}: // inputRef,
+}: // setIsNumber,
+// inputRef,
 // handleInputChange,
 InputFormType) => {
 	const inputRef = useRef<HTMLInputElement>(null);
-	// const [isNumber, setIsNumber] = useState(true);
+	const [isNumber, setIsNumber] = useState(true);
 	let currentInputValue = '';
 
 	function handleInputChange(setIsNumber: Function) {
@@ -18,7 +19,7 @@ InputFormType) => {
 			const inputValue = inputRef.current.value;
 			if (isNaN(Number(inputValue.replace(/\s/gi, '')))) {
 				setIsNumber(false);
-				// inputRef.current.value = '';
+				inputRef.current.value = '';
 				return;
 			}
 			setIsNumber(true);
@@ -36,6 +37,8 @@ InputFormType) => {
 				<label htmlFor="coordinatesInput" className="form-label">
 					<h2>Enter points:</h2>
 				</label>
+				{!isNumber ? <ModalWindow /> : ''}
+
 				<input
 					ref={inputRef}
 					type="text"
