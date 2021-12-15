@@ -13,7 +13,7 @@ export const PointsItem = ({
 	index,
 }: pointsListItemPropsType) => {
 	return (
-		<Draggable key={placemark.id} draggableId={'' + placemark.id} index={index}>
+		<Draggable key={placemark.id} draggableId={placemark.id} index={index}>
 			{(provided) => (
 				<div
 					ref={provided.innerRef}
@@ -21,7 +21,7 @@ export const PointsItem = ({
 					{...provided.dragHandleProps}
 				>
 					<li className={liStyle}>
-						<h5 className={h5Style}>Point #{placemark.id + 1}</h5>
+						<h5 className={h5Style}>Point #{placemark.id.replace(/id/, '')}</h5>
 						<h6 className={h6Style}>Latitude: {placemark.lat.toFixed(4)}</h6>
 						<h6 className={h6Style}>Longitude: {placemark.lon.toFixed(4)}</h6>
 						<button

@@ -9,12 +9,12 @@ describe('Points List', () => {
 				handleDrag={() => {}}
 				placemarks={[
 					{
-						id: 0,
+						id: 'id0',
 						lat: 23,
 						lon: 23,
 					},
 					{
-						id: 1,
+						id: 'id1',
 						lat: 24,
 						lon: 24,
 					},
@@ -31,12 +31,12 @@ describe('Points List', () => {
 				handleDrag={() => {}}
 				placemarks={[
 					{
-						id: 0,
+						id: 'id0',
 						lat: 23,
 						lon: 23,
 					},
 					{
-						id: 1,
+						id: 'id1',
 						lat: 24,
 						lon: 24,
 					},

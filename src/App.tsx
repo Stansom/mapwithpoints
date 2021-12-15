@@ -12,12 +12,14 @@ const hrStyle = `w-75 align-self-center mt-0 mb-2 text-gray`;
 
 function App() {
 	const defaultCenterOfMap: placemarkType = {
-		id: 0,
+		id: 'id0',
 		lat: 53.2038,
 		lon: 50.1606,
 	};
 	const [placemarks, setPlacemarks] = useState<placemarkType[]>([]);
 	const [pathDots, setPathDots] = useState<number[][]>([]);
+	const [currentPlacemark, setCurrentPlacemark] =
+		useState<placemarkType>(defaultCenterOfMap);
 
 	function handleFormSubmit(
 		event: React.FormEvent<HTMLFormElement>,
@@ -30,15 +32,14 @@ function App() {
 			if (coordinatesArray[0] && coordinatesArray[1]) {
 				const latToNumber = Number(coordinatesArray[0]);
 				const longToNumber = Number(coordinatesArray[1]);
-				setPlacemarks([
-					...placemarks,
-					{
-						id: placemarks.length++,
-						lat: latToNumber,
-						lon: longToNumber,
-					},
-				]);
+				const newPlacemark = {
+					id: 'id' + placemarks.length,
+					lat: latToNumber,
+					lon: longToNumber,
+				};
+				setPlacemarks([...placemarks, newPlacemark]);
 				setPathDots([...pathDots, [latToNumber, longToNumber]]);
+				setCurrentPlacemark(newPlacemark);
 			}
 			inputRef.current.value = '';
 		}
@@ -50,6 +51,7 @@ function App() {
 		);
 		setPlacemarks(filteredPlacemarks);
 		setPathDots(filteredPlacemarks.map((cr) => [cr.lat, cr.lon]));
+		setCurrentPlacemark(placemarks[placemarks.length - 1]);
 	}
 
 	function handleDrag(item: any) {
@@ -58,6 +60,7 @@ function App() {
 		const [deletedItem] = items.splice(item.source.index, 1);
 		items.splice(item.destination.index, 0, deletedItem);
 		setPlacemarks(items);
+		setPathDots(items.map((cr) => [cr.lat, cr.lon]));
 	}
 
 	function handlePlacemarkDrag(event: any, placemark: placemarkType) {
@@ -69,11 +72,12 @@ function App() {
 			lat,
 			lon,
 		};
+		const numberPlacemarkId = Number(placemark.id.replace(/id/, ''));
 
-		placemarksCopy.splice(placemark.id, 1, updatedPlacemark);
-
+		placemarksCopy.splice(numberPlacemarkId, 1, updatedPlacemark);
 		setPlacemarks(placemarksCopy);
 		setPathDots(placemarksCopy.map((cr) => [cr.lat, cr.lon]));
+		setCurrentPlacemark(updatedPlacemark);
 	}
 
 	return (
@@ -84,7 +88,7 @@ function App() {
 			<MapElement
 				placemarks={placemarks}
 				pathDots={pathDots}
-				defaultCenterOfMap={defaultCenterOfMap}
+				currentPlacemark={currentPlacemark}
 				handlePlacemarkDrag={handlePlacemarkDrag}
 			/>
 

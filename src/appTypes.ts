@@ -1,6 +1,6 @@
 
 export type placemarkType = {
-	id: number;
+	id: string;
 	lat: number;
 	lon: number;
 };
@@ -20,7 +20,7 @@ export type pointsListItemPropsType = {
 export type MapProps = {
 	placemarks: placemarkType[];
     pathDots: number[][];
-    defaultCenterOfMap: placemarkType;
+    currentPlacemark: placemarkType;
     handlePlacemarkDrag: (ev: any, placemark: placemarkType) => void;
 }
 
