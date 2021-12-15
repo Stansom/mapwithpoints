@@ -16,7 +16,6 @@ describe('Map Element', () => {
 				handlePlacemarkDrag={() => {}}
 			/>
 		);
-
 		expect(component.toJSON()).toMatchSnapshot();
 	});
 });
