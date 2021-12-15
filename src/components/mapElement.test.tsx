@@ -8,8 +8,8 @@ describe('Map Element', () => {
 			<MapElement
 				placemarks={[]}
 				pathDots={[]}
-				defaultCenterOfMap={{
-					id: 0,
+				currentPlacemark={{
+					id: 'id0',
 					lat: 0,
 					lon: 0,
 				}}
