@@ -6,7 +6,7 @@ import { MapElement } from './components/mapElement';
 import { InputForm } from './components/inputForm';
 
 const appStyle = `App container-sm d-flex p-2 flex-column vh-100 vw-100 justify-content-center`;
-const h2Style = `text-center text-white bg-primary bg-gradient border border-0 rounded w-30 p-2 align-self-center`;
+const h2Style = `text-center text-white bg-primary bg-gradient border border-0 rounded w-30 p-2 align-self-center position-absolute`;
 const inputDivStyle = `border border-2 rounded w-100 h-50 mt-1 d-flex flex-column`;
 const hrStyle = `w-75 align-self-center mt-0 mb-2 text-gray`;
 
@@ -78,8 +78,9 @@ function App() {
 
 	return (
 		<div className={appStyle}>
-			<h2 className={h2Style}>Routes Editor</h2>
-
+			<h2 className={h2Style} style={{ zIndex: '3', top: '8px' }}>
+				Routes Editor
+			</h2>
 			<MapElement
 				placemarks={placemarks}
 				pathDots={pathDots}

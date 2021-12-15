@@ -44,7 +44,7 @@ InputFormType) => {
 					type="text"
 					className="form-control"
 					id="coordinatesInput"
-					placeholder="enter coordinates here"
+					placeholder="enter coordinates here (latitude and longitude)"
 					autoComplete="off"
 					onChange={() => handleInputChange(setIsNumber)}
 				/>

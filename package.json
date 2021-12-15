@@ -1,4 +1,5 @@
 {
+  "homepage": "http://stansom.github.io/mapwithpoints",
   "name": "map",
   "version": "0.1.0",
   "private": true,
@@ -26,8 +27,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --watchAll",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -50,7 +53,8 @@
   "main": "index.js",
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.5",
-    "@types/react-test-renderer": "^17.0.1"
+    "@types/react-test-renderer": "^17.0.1",
+    "gh-pages": "^3.2.3"
   },
   "author": "",
   "license": "ISC"

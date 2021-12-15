@@ -3,9 +3,9 @@ import { Draggable } from 'react-beautiful-dnd';
 import { pointsListItemPropsType } from '../appTypes';
 
 const liStyle = `row w-100 mt-1 align-items-center`;
-const h5Style = `col-4 text-start px-3`;
-const h6Style = `col-3 text-start`;
-const buttonStyle = `btn btn-outline-danger btn-sm col-2 justify-self-end`;
+const h5Style = `col-3 text-start px-3`;
+const h6Style = `col-3 text-start px-0`;
+const buttonStyle = `btn btn-outline-danger btn-sm col-3`;
 
 export const PointsItem = ({
 	placemark,
